@@ -37,6 +37,12 @@
             ]
           },
           {
+          "group": "Authentication APIs",
+            "pages": [
+              "api-reference/auth/post-auth-token"
+            ]
+          },
+          {
           "group": "Loan Service APIs",
             "pages": [
               "api-reference/loans/get-loan",

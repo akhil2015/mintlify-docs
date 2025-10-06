@@ -594,6 +594,34 @@
           }
         ]
       }
+    },
+    "/auth-token": {
+      "post": {
+        "summary": "Exchange credentials for auth token",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token issued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthTokenResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
     }
   },
   "components": {
@@ -1061,6 +1089,29 @@
       },
       "PaymentReminder": {
         "$ref": "#/components/schemas/RequestDocuments"
+      },
+      "AuthTokenRequest": {
+        "type": "object",
+        "properties": {
+          "clientId": { "type": "string", "example": "76c6c95ca25348d5853a8360baa98b92" },
+          "clientSecret": { "type": "string", "example": "71c62382d2c04b790e8037350d9f5f9a837895d39fe7754027ae6daaee76c3e8" }
+        },
+        "required": ["clientId", "clientSecret"]
+      },
+      "AuthTokenResponse": {
+        "type": "object",
+        "properties": {
+          "message": { "type": "string", "example": "ok" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "token": { "type": "string", "example": "eyJhbGciOi..." },
+              "expiresIn": { "type": "integer", "example": 1759818954 }
+            },
+            "required": ["token", "expiresIn"]
+          }
+        },
+        "required": ["message", "data"]
       }
     }
   },

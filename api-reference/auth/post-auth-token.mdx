@@ -1,0 +1,54 @@
+---
+title: 'Access Token'
+openapi: 'POST /auth-token'
+---
+
+Exchange your API key, client ID, and client secret for a short-lived bearer token.
+
+## When to use it
+
+- After provisioning credentials out-of-band
+- To refresh an expired token
+
+## Request
+
+### Headers
+
+- `Content-Type: application/json`
+
+### Request Body
+
+```json
+{
+  "clientId": "76c6c95ca25348d5853a8360baa98b92",
+  "clientSecret": "71c62382d2c04b790e8037350d9f5f9a837895d39fe7754027ae6daaee76c3e8"
+}
+```
+
+## Response
+
+```json
+{
+  "message": "ok",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "expiresIn": 1759818954
+  }
+}
+```
+
+## Use the token
+
+Include `data.token` in the `Authorization` header when calling Loan Service APIs:
+
+```bash
+curl --request GET 'https://api.stage.satschel.com/v2/chain/loans/{loan_id}' \
+--header 'Authorization: Bearer <token>'
+```
+
+## Notes
+
+- Tokens are short-lived; refresh as needed using the same request.
+- Keep the API key and client secret confidential.
+
+
