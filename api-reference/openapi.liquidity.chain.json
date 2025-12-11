@@ -77,19 +77,60 @@
                   "term": 1200,
                   "payment_frequency": 0,
                   "installment": 12,
-                  "details": {
-                    "name": "Paul",
-                    "dob": "11/11/1995",
-                    "mobile": "9999999999",
-                    "govtId": "1748250",
-                    "address": "India",
-                    "employment-status": "employed",
-                    "grade": "C",
-                    "subgrade": "C4",
-                    "employeeTitle": "Enginner",
-                    "employmentLength": 10,
-                    "homeOwnership": "MORTGAGE",
-                    "annualIncrement": "55000"
+                  "Request": {
+                    "ApplicantInfo": {
+                      "ApplicantFirstName": "Paul",
+                      "ApplicantLastName": "Smith",
+                      "ApplicantDOB": "19951111",
+                      "ApplicantSSN": "123456789",
+                      "ApplicantAddress": "123 Main St",
+                      "ApplicantCity": "New York",
+                      "ApplicantState": "NY",
+                      "ApplicantZip": "10001",
+                      "ApplicantIncome": "55000.0",
+                      "MonthlyGross": 55000,
+                      "EmploymentType": "EMPLOYED"
+                    },
+                    "ApplicationInfo": {
+                      "ApplicationID": "app-123",
+                      "ApplicationType": "Complete",
+                      "ApplicantsNumber": "1"
+                    },
+                    "CoApplicantInfo": {
+                      "CoApplicantSSN": ""
+                    },
+                    "DealerInfo": {
+                      "DealerID": "",
+                      "DealerName": "",
+                      "DealerState": ""
+                    },
+                    "PartnerInfo": {
+                      "PartnerName": "simplici-direct",
+                      "ProgramPartner": "Simplici"
+                    },
+                    "RequestedTermsInfo": {
+                      "RequestedLoanAmount": "28875.0",
+                      "RequestedLoanRate": "18.0",
+                      "RequestedLoanTerm": "36.0"
+                    },
+                    "VehicleInfo": {
+                      "VehicleMake": "Toyota",
+                      "VehicleModel": "Camry",
+                      "VehicleYear": "2020.0",
+                      "VehicleVIN": "1HGCM82633A004352"
+                    }
+                  },
+                  "Response": {
+                    "ApplicationID": "app-123",
+                    "Decision": "APPROVED",
+                    "CreditScorePrimary": 680,
+                    "LoanTerms": [
+                      {
+                        "Rate": 10.83,
+                        "TermMonths": 36,
+                        "TotalLoanAmount": 28875.0
+                      }
+                    ]
                   }
                 }
               }
@@ -709,65 +750,159 @@
             },
             "required": ["unemployment", "cpi", "fedRate"]
           },
-          "details": {
+          "Request": {
             "type": "object",
             "properties": {
-              "name": { "type": "string", "example": "Alice Johnson" },
-              "dob": { "type": "string", "format": "date", "example": "1990-05-15" },
-              "mobile": {
-                "type": "string",
-                "pattern": "^\\+\\d{1,3}\\d{7,14}$",
-                "example": "+12025550123"
-              },
-              "govtId": { "type": "string", "example": "CA1234567" },
-              "address": {
+              "ApplicantInfo": {
                 "type": "object",
                 "properties": {
-                  "streetNumber": { "type": "string", "example": "123" },
-                  "streetName": { "type": "string", "example": "Maple Street" },
-                  "city": { "type": "string", "example": "Los Angeles" },
-                  "state": { "type": "string", "example": "CA" },
-                  "zipCode": { "type": "string", "example": "90001" }
+                  "AddressFull": { "type": "string", "example": "8329 74TH, SCOTTSDALE, AZ 85258-2704" },
+                  "AddressTotalMonths": { "type": ["number", "null"], "example": null },
+                  "ApplicantAddress": { "type": "string", "example": "8329 74TH" },
+                  "ApplicantAge": { "type": "string", "example": "64" },
+                  "ApplicantCity": { "type": "string", "example": "SCOTTSDALE" },
+                  "ApplicantDOB": { "type": "string", "example": "19610301" },
+                  "ApplicantEmail": { "type": "string", "example": "" },
+                  "ApplicantEmploymentTime": { "type": "string", "example": "0.0" },
+                  "ApplicantEmploymentTypes": { "type": "string", "example": "NONE,NONE" },
+                  "ApplicantFirstName": { "type": "string", "example": "ANA" },
+                  "ApplicantFullAddress": { "type": "string", "example": "8329 74TH" },
+                  "ApplicantIncome": { "type": "string", "example": "12250.0" },
+                  "ApplicantIncomePrimary": { "type": "string", "example": "12250.0" },
+                  "ApplicantLastName": { "type": "string", "example": "FLECHA" },
+                  "ApplicantResidencePays": { "type": "string", "example": "0.0" },
+                  "ApplicantSSN": { "type": "string", "example": "666522638" },
+                  "ApplicantState": { "type": "string", "example": "AZ" },
+                  "ApplicantTimeAtResidence": { "type": "string", "example": "0.0" },
+                  "ApplicantZip": { "type": "string", "example": "85258-2704" },
+                  "County": { "type": "string", "example": "Maricopa County" },
+                  "Email": { "type": ["string", "null"], "example": null },
+                  "EmploymentCompany": { "type": "string", "example": "" },
+                  "EmploymentTotalMonths": { "type": ["number", "null"], "example": null },
+                  "EmploymentType": { "type": "string", "example": "NONE" },
+                  "EmploymentWorkPhone": { "type": "string", "example": "" },
+                  "EstimatedIncome": { "type": "string", "example": "10000.0" },
+                  "HomePhone": { "type": "string", "example": "" },
+                  "HousingMonthlyPayment": { "type": ["number", "null"], "example": null },
+                  "MiddleInitial": { "type": "string", "example": "" },
+                  "MonthlyGross": { "type": "number", "example": 12250 },
+                  "OtherIncomeAmount": { "type": ["number", "null"], "example": null },
+                  "OtherIncomeType": { "type": "string", "example": "NONE" },
+                  "ReportedIncome": { "type": "string", "example": "12250.0" },
+                  "StreetNumber": { "type": "string", "example": "8329" },
+                  "UnitNumber": { "type": "string", "example": "" }
                 }
               },
-              "ssn": { "type": "string", "example": "XXX-XX-6789" },
-              "driversLicence": { "type": "string", "example": "D1234567" },
-              "driversLicenceState": { "type": "string", "example": "CA" },
-              "phoneNumber": {
-                "type": "string",
-                "pattern": "^\\+\\d{1,3}\\d{7,14}$",
-                "example": "+12025550123"
-              },
-              "employmentStatus": { "type": "string", "example": "Employed" },
-              "grade": { "type": "string", "example": "A" },
-              "subgrade": { "type": "string", "example": "A1" },
-              "employeeTitle": { "type": "string", "example": "Software Engineer" },
-              "employmentLength": { "type": "number", "example": 60 },
-              "homeOwnership": { "type": "string", "example": "Mortgage" },
-              "annualIncrement": { "type": "number", "example": 5 },
-              "coApplicantData": {
+              "ApplicationInfo": {
                 "type": "object",
                 "properties": {
-                  "name": { "type": "string", "example": "Robert Johnson" },
-                  "address": {
-                    "type": "object",
-                    "properties": {
-                      "streetNumber": { "type": "string", "example": "123" },
-                      "streetName": { "type": "string", "example": "Maple Street" },
-                      "city": { "type": "string", "example": "Los Angeles" },
-                      "state": { "type": "string", "example": "CA" },
-                      "zipCode": { "type": "string", "example": "90001" }
-                    }
-                  },
-                  "ssn": { "type": "string", "example": "XXX-XX-9876" },
-                  "driversLicence": { "type": "string", "example": "D7654321" },
-                  "driversLicenceState": { "type": "string", "example": "CA" },
-                  "phoneNumber": {
-                    "type": "string",
-                    "pattern": "^\\+\\d{1,3}\\d{7,14}$",
-                    "example": "+12025550456"
+                  "ApplicantNumber": { "type": "string", "example": "" },
+                  "ApplicantsNumber": { "type": "string", "example": "1" },
+                  "ApplicationID": { "type": "string", "example": "1e52f7d9cd61285b587828c2" },
+                  "ApplicationType": { "type": "string", "example": "Complete" },
+                  "RefiBool": { "type": "string", "example": "n" },
+                  "RequestedLoanID": { "type": "string", "example": "" }
+                }
+              },
+              "CoApplicantInfo": {
+                "type": "object",
+                "properties": {
+                  "CoApplicantSSN": { "type": "string", "example": "" }
+                }
+              },
+              "DealerInfo": {
+                "type": "object",
+                "properties": {
+                  "DealerID": { "type": "string", "example": "" },
+                  "DealerName": { "type": "string", "example": "" },
+                  "DealerState": { "type": "string", "example": "" }
+                }
+              },
+              "PartnerInfo": {
+                "type": "object",
+                "properties": {
+                  "PartnerName": { "type": "string", "example": "simplici-direct" },
+                  "ProgramPartner": { "type": "string", "example": "Simplici" }
+                }
+              },
+              "RequestedTermsInfo": {
+                "type": "object",
+                "properties": {
+                  "RequestedLoanAmount": { "type": "string", "example": "28875.000000000004" },
+                  "RequestedLoanBackendProductsAmount": { "type": "string", "example": "0.0" },
+                  "RequestedLoanDTI": { "type": "string", "example": "0.03535425679536365" },
+                  "RequestedLoanDownPayment": { "type": "string", "example": "0.0" },
+                  "RequestedLoanGAP": { "type": "string", "example": "0.0" },
+                  "RequestedLoanPTI": { "type": "string", "example": "0.1" },
+                  "RequestedLoanPayment": { "type": "string", "example": "433.12500000000006" },
+                  "RequestedLoanRate": { "type": "string", "example": "18.0" },
+                  "RequestedLoanTerm": { "type": "string", "example": "36.0" }
+                }
+              },
+              "VehicleInfo": {
+                "type": "object",
+                "properties": {
+                  "VehicleAge": { "type": "string", "example": "10" },
+                  "VehicleMake": { "type": "string", "example": "FORD" },
+                  "VehicleMileage": { "type": "string", "example": "10000" },
+                  "VehicleModel": { "type": "string", "example": "Fusion" },
+                  "VehicleRetailValue": { "type": "string", "example": "35000" },
+                  "VehicleVIN": { "type": "string", "example": "3FA6P0H74FR288905" },
+                  "VehicleWholesaleValue": { "type": "string", "example": "26250.0" },
+                  "VehicleYear": { "type": "string", "example": "2015.0" }
+                }
+              }
+            }
+          },
+          "Response": {
+            "type": "object",
+            "properties": {
+              "ApplicationID": { "type": "string", "example": "1e52f7d9cd61285b587828c2" },
+              "ApplicationType": { "type": "string", "example": "Complete" },
+              "Comments": { "type": "array", "items": { "type": "string" }, "example": [] },
+              "CreditScoreCoapplicant": { "type": "number", "example": 0.0 },
+              "CreditScorePrimary": { "type": "number", "example": 753 },
+              "Date": { "type": "string", "example": "2025-12-11" },
+              "DealerID": { "type": "string", "example": "" },
+              "Decision": { "type": "string", "example": "APPROVED" },
+              "DecisionDate": { "type": "string", "example": "2025-12-11 17:21:52" },
+              "DeclineReason": { "type": "string", "example": "" },
+              "LoanTerms": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "AcquisitionFee": { "type": "number", "example": 0.0 },
+                    "AssetPrice": { "type": "number", "example": 1.01 },
+                    "DEALER_FLAT": { "type": "string", "example": "288.75" },
+                    "DefaultProb": { "type": "number", "example": 0.0 },
+                    "Description": { "type": "string", "example": "Karus Option" },
+                    "Discount": { "type": "number", "example": -1.0 },
+                    "FundedAmount": { "type": "number", "example": 29163.75 },
+                    "GrossYield": { "type": "number", "example": 0.1072 },
+                    "IRR": { "type": "number", "example": 0.1023 },
+                    "LTV": { "type": "number", "example": 110.0 },
+                    "Participation": { "type": ["number", "null"], "example": null },
+                    "Payment": { "type": "number", "example": 943.01 },
+                    "Rate": { "type": "number", "example": 10.83 },
+                    "TermMonths": { "type": "number", "example": 36 },
+                    "TotalLoanAmount": { "type": "number", "example": 28875.0 },
+                    "VehicleWholesaleValue": { "type": "number", "example": 26250.0 }
                   }
                 }
+              },
+              "Stipulations": {
+                "type": "array",
+                "items": { "type": "string" },
+                "example": [
+                  "18+ Years Old",
+                  "Valid Drivers License",
+                  "Proof of Income",
+                  "Proof of Insurance",
+                  "Proof of Residence",
+                  "3 References",
+                  "Minimum Downpayment Approved: $1443.75"
+                ]
               }
             }
           },
@@ -807,7 +942,7 @@
           "predictedChargeoffAmount", "predictedRecoveredAmount", "predictedGrossCashflow",
           "predictedNetCashflow", "predictedYield", "apr", "fairValuePrice",
           "lendingDecisionReason", "creditReportHash", "retailInstallmentContractHash",
-          "applicantCreditVision", "coApplicantCreditVision", "macroEconomicFeatures", "details"
+          "applicantCreditVision", "coApplicantCreditVision", "macroEconomicFeatures", "Request", "Response"
         ]
       },
       "LoanResponse": {

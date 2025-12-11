@@ -17,7 +17,7 @@ This endpoint creates a new loan between a borrower and a lender. Use it to init
 
 ## Request Body
 
-The request body should include loan and borrower details in the following format:
+The request body should include loan and borrower details. The `Request` object contains applicant information, application details, vehicle information, and requested terms. The `Response` object contains risk assessment results including decision, credit scores, and approved loan terms:
 
 ```json
 {
@@ -27,87 +27,162 @@ The request body should include loan and borrower details in the following forma
   "primaryServicerId": "serv001",
   "secondaryServicerId": "serv002",
   "loanType": "AutoLoan",
-  "principalAmount": 500000,
-  "loanAmount": 520000,
+  "principalAmount": 28875,
+  "loanAmount": 29163.75,
   "collateralType": "Vehicles",
   "encumberedStatus": "Unencumbered",
-  "interestRate": 8.5,
-  "term": 120,
-  "delinquentAmount": 15000,
-  "delinquentDays": 90,
+  "interestRate": 10.83,
+  "term": 36,
+  "delinquentAmount": 0,
+  "delinquentDays": 0,
   "paymentFrequency": "Monthly",
-  "installment": 12,
+  "installment": 36,
   "originationDate": "2024-06-01",
-  "maturityDate": "2034-06-01",
+  "maturityDate": "2027-06-01",
   "firstPaymentDate": "2024-07-01",
-  "lastPaymentDate": "2034-06-01",
+  "lastPaymentDate": "2027-06-01",
   "nextPaymentDate": "2024-08-01",
-  "defaultProbability": 0.03,
+  "defaultProbability": 0.0038,
   "grade": "A",
-  "predictedPrincipalPaid": 400000,
-  "predictedInterestPaid": 80000,
-  "predictedChargeoffAmount": 1000,
-  "predictedRecoveredAmount": 800,
-  "predictedGrossCashflow": 488000,
-  "predictedNetCashflow": 480000,
-  "predictedYield": 0.09,
-  "apr": 0.075,
-  "fairValuePrice": 510000,
-  "lendingDecisionReason": "Approved based on strong credit profile",
+  "predictedPrincipalPaid": 28821.35,
+  "predictedInterestPaid": 4819.16,
+  "predictedChargeoffAmount": 53.65,
+  "predictedRecoveredAmount": 18.63,
+  "predictedGrossCashflow": 33659.14,
+  "predictedNetCashflow": 32330.15,
+  "predictedYield": 0.1259,
+  "apr": 0.1072,
+  "fairValuePrice": 29751.11,
+  "lendingDecisionReason": "Approved based on risk assessment",
   "creditReportHash": "0xabc123def4567890",
   "retailInstallmentContractHash": "0x0987fedc6543210a",
-  "applicantCreditVision": "Stable repayment history, no defaults",
-  "coApplicantCreditVision": "One delayed payment in last year",
+  "applicantCreditVision": "FICO 753, stable income, low credit utilization",
+  "coApplicantCreditVision": "",
   "macroEconomicFeatures": {
     "unemployment": 3.8,
     "cpi": 3.1,
     "fedRate": 5.25
   },
-  "details": {
-    "name": "Alice Johnson",
-    "dob": "1990-05-15",
-    "mobile": "+919876543210",
-    "govtId": "ABC1234567",
-    "address": {
-      "streetNumber": "42B",
-      "streetName": "Green Avenue",
-      "city": "Mumbai",
-      "state": "Maharashtra",
-      "zipCode": "400001"
+  "Request": {
+    "ApplicantInfo": {
+      "AddressFull": "8329 74TH, SCOTTSDALE, AZ 85258-2704",
+      "AddressTotalMonths": null,
+      "ApplicantAddress": "8329 74TH",
+      "ApplicantAge": "64",
+      "ApplicantCity": "SCOTTSDALE",
+      "ApplicantDOB": "19610301",
+      "ApplicantEmail": "",
+      "ApplicantEmploymentTime": "0.0",
+      "ApplicantEmploymentTypes": "NONE,NONE",
+      "ApplicantFirstName": "ANA",
+      "ApplicantFullAddress": "8329 74TH",
+      "ApplicantIncome": "12250.0",
+      "ApplicantIncomePrimary": "12250.0",
+      "ApplicantLastName": "FLECHA",
+      "ApplicantResidencePays": "0.0",
+      "ApplicantSSN": "666522638",
+      "ApplicantState": "AZ",
+      "ApplicantTimeAtResidence": "0.0",
+      "ApplicantZip": "85258-2704",
+      "County": "Maricopa County",
+      "Email": null,
+      "EmploymentCompany": "",
+      "EmploymentTotalMonths": null,
+      "EmploymentType": "NONE",
+      "EmploymentWorkPhone": "",
+      "EstimatedIncome": "10000.0",
+      "HomePhone": "",
+      "HousingMonthlyPayment": null,
+      "MiddleInitial": "",
+      "MonthlyGross": 12250,
+      "OtherIncomeAmount": null,
+      "OtherIncomeType": "NONE",
+      "ReportedIncome": "12250.0",
+      "StreetNumber": "8329",
+      "UnitNumber": ""
     },
-    "ssn": "XXX-XX-1234",
-    "driversLicence": "MH2023012345",
-    "driversLicenceState": "MH",
-    "phoneNumber": "+919876543210",
-    "employmentStatus": "Employed",
-    "grade": "A",
-    "subgrade": "A1",
-    "employeeTitle": "Software Engineer",
-    "employmentLength": 60,
-    "homeOwnership": "Mortgage",
-    "annualIncrement": 5,
-    "coApplicantData": {
-      "name": "Robert Johnson",
-      "address": {
-        "streetNumber": "42B",
-        "streetName": "Green Avenue",
-        "city": "Mumbai",
-        "state": "Maharashtra",
-        "zipCode": "400001"
-      },
-      "ssn": "XXX-XX-5678",
-      "driversLicence": "MH2023056789",
-      "driversLicenceState": "MH",
-      "phoneNumber": "+919876543222"
+    "ApplicationInfo": {
+      "ApplicantNumber": "",
+      "ApplicantsNumber": "1",
+      "ApplicationID": "1e52f7d9cd61285b587828c2",
+      "ApplicationType": "Complete",
+      "RefiBool": "n",
+      "RequestedLoanID": ""
+    },
+    "CoApplicantInfo": {
+      "CoApplicantSSN": ""
+    },
+    "DealerInfo": {
+      "DealerID": "",
+      "DealerName": "",
+      "DealerState": ""
+    },
+    "PartnerInfo": {
+      "PartnerName": "simplici-direct",
+      "ProgramPartner": "Simplici"
+    },
+    "RequestedTermsInfo": {
+      "RequestedLoanAmount": "28875.000000000004",
+      "RequestedLoanBackendProductsAmount": "0.0",
+      "RequestedLoanDTI": "0.03535425679536365",
+      "RequestedLoanDownPayment": "0.0",
+      "RequestedLoanGAP": "0.0",
+      "RequestedLoanPTI": "0.1",
+      "RequestedLoanPayment": "433.12500000000006",
+      "RequestedLoanRate": "18.0",
+      "RequestedLoanTerm": "36.0"
+    },
+    "VehicleInfo": {
+      "VehicleAge": "10",
+      "VehicleMake": "FORD",
+      "VehicleMileage": "10000",
+      "VehicleModel": "Fusion",
+      "VehicleRetailValue": "35000",
+      "VehicleVIN": "3FA6P0H74FR288905",
+      "VehicleWholesaleValue": "26250.0",
+      "VehicleYear": "2015.0"
     }
   },
-  "loanInfo": {
-    "make": "Toyota",
-    "model": "Corolla",
-    "year": 2020,
-    "age": 3,
-    "mileage": 45000,
-    "vin": "1HGCM82633A004352"
+  "Response": {
+    "ApplicationID": "1e52f7d9cd61285b587828c2",
+    "ApplicationType": "Complete",
+    "Comments": [],
+    "CreditScoreCoapplicant": 0.0,
+    "CreditScorePrimary": 753,
+    "Date": "2025-12-11",
+    "DealerID": "",
+    "Decision": "APPROVED",
+    "DecisionDate": "2025-12-11 17:21:52",
+    "DeclineReason": "",
+    "LoanTerms": [
+      {
+        "AcquisitionFee": 0.0,
+        "AssetPrice": 1.01,
+        "DEALER_FLAT": "288.75",
+        "DefaultProb": 0.0,
+        "Description": "Karus Option",
+        "Discount": -1.0,
+        "FundedAmount": 29163.75,
+        "GrossYield": 0.1072,
+        "IRR": 0.1023,
+        "LTV": 110.0,
+        "Participation": null,
+        "Payment": 943.01,
+        "Rate": 10.83,
+        "TermMonths": 36,
+        "TotalLoanAmount": 28875.0,
+        "VehicleWholesaleValue": 26250.0
+      }
+    ],
+    "Stipulations": [
+      "18+ Years Old",
+      "Valid Drivers License",
+      "Proof of Income",
+      "Proof of Insurance",
+      "Proof of Residence",
+      "3 References",
+      "Minimum Downpayment Approved: $1443.75"
+    ]
   }
 }
   ```

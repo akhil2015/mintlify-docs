@@ -9,7 +9,8 @@ It is designed for internal servicing teams, underwriting systems, audit trails,
 **What it does:**
 - Fetches a loan record using its unique ID
 - Includes public financial metadata, repayment status, and loan structure
-- Includes PII fields such as borrower name, contact details, and employment info
+- Includes PII fields in the `Request` object (ApplicantInfo, VehicleInfo, etc.)
+- Includes risk assessment data in the `Response` object (Decision, LoanTerms, CreditScore, etc.)
 - Displays servicing, origination, and underwriting progress
 
 **When to use it:**
@@ -161,53 +162,126 @@ The API returns the event object with all its details, including invitation stat
         }
       }
     },
-    "details": {
-      "name": "Alice Johnson",
-      "dob": "1990-05-15",
-      "mobile": "+12025550123",
-      "govtId": "CA1234567",
-      "address": {
-        "streetNumber": "123",
-        "streetName": "Maple Street",
-        "city": "Los Angeles",
-        "state": "CA",
-        "zipCode": "90001"
+    "Request": {
+      "ApplicantInfo": {
+        "AddressFull": "8329 74TH, SCOTTSDALE, AZ 85258-2704",
+        "AddressTotalMonths": null,
+        "ApplicantAddress": "8329 74TH",
+        "ApplicantAge": "64",
+        "ApplicantCity": "SCOTTSDALE",
+        "ApplicantDOB": "19610301",
+        "ApplicantEmail": "",
+        "ApplicantEmploymentTime": "0.0",
+        "ApplicantEmploymentTypes": "NONE,NONE",
+        "ApplicantFirstName": "ANA",
+        "ApplicantFullAddress": "8329 74TH",
+        "ApplicantIncome": "12250.0",
+        "ApplicantIncomePrimary": "12250.0",
+        "ApplicantLastName": "FLECHA",
+        "ApplicantResidencePays": "0.0",
+        "ApplicantSSN": "666522638",
+        "ApplicantState": "AZ",
+        "ApplicantTimeAtResidence": "0.0",
+        "ApplicantZip": "85258-2704",
+        "County": "Maricopa County",
+        "Email": null,
+        "EmploymentCompany": "",
+        "EmploymentTotalMonths": null,
+        "EmploymentType": "NONE",
+        "EmploymentWorkPhone": "",
+        "EstimatedIncome": "10000.0",
+        "HomePhone": "",
+        "HousingMonthlyPayment": null,
+        "MiddleInitial": "",
+        "MonthlyGross": 12250,
+        "OtherIncomeAmount": null,
+        "OtherIncomeType": "NONE",
+        "ReportedIncome": "12250.0",
+        "StreetNumber": "8329",
+        "UnitNumber": ""
       },
-      "ssn": "XXX-XX-6789",
-      "driversLicence": "D1234567",
-      "driversLicenceState": "CA",
-      "phoneNumber": "+12025550123",
-      "employmentStatus": "Employed",
-      "grade": "A",
-      "subgrade": "A1",
-      "employeeTitle": "Software Engineer",
-      "employmentLength": 60,
-      "homeOwnership": "Mortgage",
-      "annualIncrement": 5,
-      "coApplicantData": {
-        "name": "Robert Johnson",
-        "address": {
-          "streetNumber": "123",
-          "streetName": "Maple Street",
-          "city": "Los Angeles",
-          "state": "CA",
-          "zipCode": "90001"
-        },
-        "ssn": "XXX-XX-9876",
-        "driversLicence": "D7654321",
-        "driversLicenceState": "CA",
-        "phoneNumber": "+12025550456"
+      "ApplicationInfo": {
+        "ApplicantNumber": "",
+        "ApplicantsNumber": "1",
+        "ApplicationID": "1e52f7d9cd61285b587828c2",
+        "ApplicationType": "Complete",
+        "RefiBool": "n",
+        "RequestedLoanID": ""
+      },
+      "CoApplicantInfo": {
+        "CoApplicantSSN": ""
+      },
+      "DealerInfo": {
+        "DealerID": "",
+        "DealerName": "",
+        "DealerState": ""
+      },
+      "PartnerInfo": {
+        "PartnerName": "simplici-direct",
+        "ProgramPartner": "Simplici"
+      },
+      "RequestedTermsInfo": {
+        "RequestedLoanAmount": "28875.000000000004",
+        "RequestedLoanBackendProductsAmount": "0.0",
+        "RequestedLoanDTI": "0.03535425679536365",
+        "RequestedLoanDownPayment": "0.0",
+        "RequestedLoanGAP": "0.0",
+        "RequestedLoanPTI": "0.1",
+        "RequestedLoanPayment": "433.12500000000006",
+        "RequestedLoanRate": "18.0",
+        "RequestedLoanTerm": "36.0"
+      },
+      "VehicleInfo": {
+        "VehicleAge": "10",
+        "VehicleMake": "FORD",
+        "VehicleMileage": "10000",
+        "VehicleModel": "Fusion",
+        "VehicleRetailValue": "35000",
+        "VehicleVIN": "3FA6P0H74FR288905",
+        "VehicleWholesaleValue": "26250.0",
+        "VehicleYear": "2015.0"
       }
     },
-    "loanInfo": {
-      "Auto": {
-        "make": "Toyota",
-        "model": "Camry",
-        "year": "2,020",
-        "age": "5",
-        "mileage": "40,000",
-        "vin": "1HGBH41JXMN109186"
-      }
+    "Response": {
+      "ApplicationID": "1e52f7d9cd61285b587828c2",
+      "ApplicationType": "Complete",
+      "Comments": [],
+      "CreditScoreCoapplicant": 0.0,
+      "CreditScorePrimary": 753,
+      "Date": "2025-12-11",
+      "DealerID": "",
+      "Decision": "APPROVED",
+      "DecisionDate": "2025-12-11 17:21:52",
+      "DeclineReason": "",
+      "LoanTerms": [
+        {
+          "AcquisitionFee": 0.0,
+          "AssetPrice": 1.01,
+          "DEALER_FLAT": "288.75",
+          "DefaultProb": 0.0,
+          "Description": "Karus Option",
+          "Discount": -1.0,
+          "FundedAmount": 29163.75,
+          "GrossYield": 0.1072,
+          "IRR": 0.1023,
+          "LTV": 110.0,
+          "Participation": null,
+          "Payment": 943.01,
+          "Rate": 10.83,
+          "TermMonths": 36,
+          "TotalLoanAmount": 28875.0,
+          "VehicleWholesaleValue": 26250.0
+        }
+      ],
+      "Stipulations": [
+        "18+ Years Old",
+        "Valid Drivers License",
+        "Proof of Income",
+        "Proof of Insurance",
+        "Proof of Residence",
+        "3 References",
+        "Minimum Downpayment Approved: $1443.75"
+      ]
     }
   }
 }
