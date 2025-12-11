@@ -214,11 +214,14 @@ curl -X GET https://your-api.com/loan-data/0x1cb52e0315a448ddb84f1fb3016caf0686a
             "TermsFundedAmount": "29163.75",
             "TermsLoanDiscount": "3.637978807091713e-12",
             "TermsTotalDiscount": "-288.74999999999636",
-            "WarningsNumber": "0"
-          }
-        ]
+        "WarningsNumber": "0"
       }
-    }
+    ]
+  }
+}
+```
+
+**Note:** The `UnderwritingInfo` array contains all 60 entries (one for each `DealTermsInfo` entry). All attributes from the risk assessment API response are included. Note that `PrimaryCreditInfo`, `PrimaryCreditBureauPDF`, `PrimaryCreditBureauTradeLines`, `CoApplicantCreditBureauPDF`, and `CoApplicantCreditBureauTradeLines` are excluded from the public endpoint as they contain PII.
   }
 }
 

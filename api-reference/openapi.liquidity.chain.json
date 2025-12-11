@@ -953,7 +953,14 @@
               },
               "PrimaryCreditInfo": {
                 "type": "object",
-                "description": "Primary applicant credit information with detailed credit bureau data",
+                "description": "Primary applicant credit information with detailed credit bureau data. Contains all 1136+ credit bureau fields including AGG*, AGGS*, AT*, AU*, BC*, BR*, CV*, FC*, FI*, FR*, G*, HI*, HR*, IN*, JT*, LM*, MD*, MT*, OF*, PAYMNT*, PB*, RE*, RETS*, REVS*, RP*, RT*, RVDEX*, RVLR*, S*, SE*, ST*, TRD*, TRV*, US*, WALSHR*, WALSRTS*, WALSRVS*, and other credit bureau attributes. All fields from the credit bureau response are included.",
+                "additionalProperties": {
+                  "oneOf": [
+                    { "type": "string" },
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
                 "properties": {
                   "CreditScore": { "type": "string", "example": "753.0" },
                   "ApplicantCreditReportDate": { "type": "string", "example": "2025-12-11" },
