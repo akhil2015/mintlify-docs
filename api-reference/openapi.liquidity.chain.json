@@ -906,6 +906,109 @@
               }
             }
           },
+          "Underwriting": {
+            "type": "object",
+            "properties": {
+              "CashflowsCsv": {
+                "type": "string",
+                "description": "CSV string containing monthly cashflow projections",
+                "example": "Month,Scheduled principal payment,Scheduled interest payment..."
+              },
+              "CoApplicantCreditBureauPDF": {
+                "type": "string",
+                "description": "Base64 encoded PDF of co-applicant credit bureau report",
+                "example": "JVBERi0xLjUKJeLjz9MKMyAwIG9iago8PC9Db2xvclNwYWNlL0RldmljZVJHQi9NYXNrIFsyNTUgMjU1IDI1NSAyNTUgMjU1IDI1NSBdL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDM4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTEyL0xlbmd0aCAxNDIwL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7Zo7axRRGIYFO1t7W0s7Kztbe3trG1t/gT/AP2ATSSGkEEFEEEGQGRUSvBFECRHFG8HgPcT12fPsfp7M7OyuwezswnwcwszZc/nOe97vcs6k1+ukk0466aSTA5EvO7vLG5/O3Fk/trJ6+GpJOXrt0albzy49fbP59Wfb2i2YrGxuHb++dmipoJy48fjsvRcUwDyy/IAa/oJq2zoujFxcfR2gVaj44cfOlZcfhRrqwuG2lFwUAcNDSyWcXN/+3tQGGM/df0UzIP21+3uW6i2WFJ++aODwkFfIeff9ts91SZAWneGPEfgGRGDo6+nbzyFhE1FhKYaPW+jC00gBH8ABIl+hJTEdhMd0IQHoKNokeMIUaEpC+YWHG3L15M0n58sNKHp5/R1xSm9JSKISwN0C4n7bus+pYOk4TyA1U7KQdlJPJebfG9KYSrGlkte2FZ9rMQxh7JATZvIKOcETWvLrzbefARmu2hgy07JVfRdAyOcBDRh9NZM30GPp/EQm4E8dnk0CJ0mBDNYpCy2gYi/5VawbP9BL5MyNHaGeA2mLas+taNRyMjnM/hEJrDBzYxPPyaOWxilMfm3rG+SEom3rPo+COQMgfIsgDmi8gjCkBTSeITBQE/3JBOCwJ1OcQ9u6z6mIz5T5pOQUfxwsD02FlgeteV03p64fRiSGsXWi4N+wzSkb18UjD5CSqI9viZ7e43mY4iFcQ..."
+              },
+              "CoApplicantCreditBureauTradeLines": {
+                "type": "string",
+                "description": "CSV string containing co-applicant credit bureau trade lines",
+                "example": ""
+              },
+              "DealTermsInfo": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ApprovedDownPayment": { "type": "string", "example": "1443.75" },
+                    "TermsAPR": { "type": "string", "example": "0.0783" },
+                    "TermsDTI": { "type": "string", "example": "0.11213880725221191" },
+                    "TermsFrontEndLTV": { "type": "string", "example": "1.1" },
+                    "TermsLTV": { "type": "string", "example": "1.1" },
+                    "TermsLoanAmount": { "type": "string", "example": "28875.0" },
+                    "TermsMonthlyPayment": { "type": "string", "example": "1303.700388839596" },
+                    "TermsPTI": { "type": "string", "example": "0.1064245215379262" },
+                    "TermsTerm": { "type": "string", "example": "24.0" }
+                  }
+                }
+              },
+              "PrimaryCreditBureauPDF": {
+                "type": "string",
+                "description": "Base64 encoded PDF of primary applicant credit bureau report",
+                "example": "JVBERi0xLjUKJeLjz9MKMyAwIG9iago8PC9Db2xvclNwYWNlL0RldmljZVJHQi9NYXNrIFsyNTUgMjU1IDI1NSAyNTUgMjU1IDI1NSBdL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDM4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTEyL0xlbmd0aCAxNDIwL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7Zo7axRRGIYFO1t7W0s7Kztbe3trG1t/gT/AP2ATSSGkEEFEEEGQGRUSvBFECRHFG8HgPcT12fPsfp7M7OyuwezswnwcwszZc/nOe97vcs6k1+ukk0466aSTA5EvO7vLG5/O3Fk/trJ6+GpJOXrt0albzy49fbP59Wfb2i2YrGxuHb++dmipoJy48fjsvRcUwDyy/IAa/oJq2zoujFxcfR2gVaj44cfOlZcfhRrqwuG2lFwUAcNDSyWcXN/+3tQGGM/df0UzIP21+3uW6i2WFJ++aODwkFfIeff9ts91SZAWneGPEfgGRGDo6+nbzyFhE1FhKYaPW+jC00gBH8ABIl+hJTEdhMd0IQHoKNokeMIUaEpC+YWHG3L15M0n58sNKHp5/R1xSm9JSKISwN0C4n7bus+pYOk4TyA1U7KQdlJPJebfG9KYSrGlkte2FZ9rMQxh7JATZvIKOcETWvLrzbefARmu2hgy07JVfRdAyOcBDRh9NZM30GPp/EQm4E8dnk0CJ0mBDNYpCy2gYi/5VawbP9BL5MyNHaGeA2mLas+taNRyMjnM/hEJrDBzYxPPyaOWxilMfm3rG+SEom3rPo+COQMgfIsgDmi8gjCkBTSeITBQE/3JBOCwJ1OcQ9u6z6mIz5T5pOQUfxwsD02FlgeteV03p64fRiSGsXWi4N+wzSkb18UjD5CSqI9viZ7e43mY4iFcQ..."
+              },
+              "PrimaryCreditBureauTradeLines": {
+                "type": "string",
+                "description": "CSV string containing primary applicant credit bureau trade lines",
+                "example": "subscriber,account_type,member,account_num,opened,closed,payment,terms,portfolio_type,balance,high_balance,past_due,rating,30dpd,60dpd,90dpd,account_class,today,age,age_closed,seasoned\nJPMCB CARD,FX,0..."
+              },
+              "PrimaryCreditInfo": {
+                "type": "object",
+                "description": "Primary applicant credit information with detailed credit bureau data",
+                "properties": {
+                  "CreditScore": { "type": "string", "example": "753.0" },
+                  "ApplicantCreditReportDate": { "type": "string", "example": "2025-12-11" },
+                  "FileSummaryFileHitIndicator": { "type": "string", "example": "regularHit" },
+                  "FileSummarySsnMatchIndicator": { "type": "string", "example": "exact" },
+                  "FileSummaryInFileSinceDate": { "type": "string", "example": "1999-05-01" },
+                  "FileSummaryMarket": { "type": "string", "example": "29" },
+                  "FileSummarySubmarket": { "type": "string", "example": "AZ" },
+                  "FileSummaryConsumerStatementIndicator": { "type": "string", "example": "False" },
+                  "CreditDataStatusSuppressed": { "type": "string", "example": "False" },
+                  "InFileSinceDate": { "type": "string", "example": "1999-05-01" },
+                  "TrackingTransactionTimeStamp": { "type": "string", "example": "2025-11-17T12:12:46.001-06:00" }
+                }
+              },
+              "UnderwritingInfo": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "AllWarnings": { "type": "string", "example": "" },
+                    "CollateralDefaultProb": { "type": "string", "example": "0.025768364019160397" },
+                    "DecisionReason": { "type": "string", "example": "" },
+                    "DecisionReasonSimple": { "type": "string", "example": "" },
+                    "DecisionStatus": { "type": "string", "example": "APPROVED" },
+                    "DefaultProb": { "type": "string", "example": "0.0038391412595749734" },
+                    "FairValuePrice": { "type": "string", "example": "1.01" },
+                    "ForecastChargeoffAmount": { "type": "string", "example": "53.64759247686432" },
+                    "ForecastCompoundingIRR": { "type": "string", "example": "0.13345275863242834" },
+                    "ForecastCompoundingNetIRR": { "type": "string", "example": "0.09483225736178147" },
+                    "ForecastFairValuePrice": { "type": "string", "example": "1.040644729219909" },
+                    "ForecastInterestPaid": { "type": "string", "example": "4819.160498780415" },
+                    "ForecastNetLossAmount": { "type": "string", "example": "35.020800528969865" },
+                    "ForecastPresentValue": { "type": "string", "example": "29751.105501212747" },
+                    "ForecastPrincipalPaid": { "type": "string", "example": "28821.352407523133" },
+                    "ForecastRecoveredAmount": { "type": "string", "example": "18.626791947894457" },
+                    "ForecastSimpleIRR": { "type": "string", "example": "0.12592463545450983" },
+                    "ForecastSimpleNetIRR": { "type": "string", "example": "0.0909440480803152" },
+                    "ForecastTotalPaid": { "type": "string", "example": "33659.13969825145" },
+                    "ForecastTotalPaidLessFees": { "type": "string", "example": "32330.15064727478" },
+                    "SolventProb": { "type": "string", "example": "0.996160858740425" },
+                    "TermsApprovedBackEndProducts": { "type": "string", "example": "0.0" },
+                    "TermsApprovedFrontEndAmt": { "type": "string", "example": "28875.0" },
+                    "TermsApprovedFrontEndLTV": { "type": "string", "example": "109.99580968344063" },
+                    "TermsDealerDiscount": { "type": "string", "example": "-0.010000000000000009" },
+                    "TermsDealerFlat": { "type": "string", "example": "288.7500000000003" },
+                    "TermsDiscountFee": { "type": "string", "example": "2.8421709430404007e-13" },
+                    "TermsFundedAmount": { "type": "string", "example": "29163.75" },
+                    "TermsLoanDiscount": { "type": "string", "example": "3.637978807091713e-12" },
+                    "TermsTotalDiscount": { "type": "string", "example": "-288.74999999999636" },
+                    "WarningsNumber": { "type": "string", "example": "0" }
+                  }
+                }
+              }
+            }
+          },
           "loanInfo": {
             "oneOf": [
               {
@@ -942,7 +1045,7 @@
           "predictedChargeoffAmount", "predictedRecoveredAmount", "predictedGrossCashflow",
           "predictedNetCashflow", "predictedYield", "apr", "fairValuePrice",
           "lendingDecisionReason", "creditReportHash", "retailInstallmentContractHash",
-          "applicantCreditVision", "coApplicantCreditVision", "macroEconomicFeatures", "Request", "Response"
+          "applicantCreditVision", "coApplicantCreditVision", "macroEconomicFeatures", "Request", "Response", "Underwriting"
         ]
       },
       "LoanResponse": {
